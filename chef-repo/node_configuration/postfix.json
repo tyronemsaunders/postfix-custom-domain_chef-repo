@@ -1,0 +1,74 @@
+{
+  "name": "postfix.test",
+  "chef_environment": "development",
+  "json_class": "Chef::Node",
+  "automatic": {
+
+  },
+  "normal": {
+
+  },
+  "chef_type": "node",
+  "default": {
+
+  },
+  "override": {
+
+  },
+  "vagrant" : {
+  	":name": "postfix.test",
+  	"exclusions": [],
+  	":ip": "192.168.81.81",
+  	":host": "postfix.test",
+  	":aliases": [
+      "mail.postfix.test",
+      "email.postfix.test",
+      "postfix.test"],
+  	"ports": [
+  		{
+  			":host": 8080,
+  			":guest": 80
+  		},
+  		{
+  			":host": 8443,
+  			":guest": 443
+  		},
+  		{
+  			":host": 9025,
+  			":guest": 9025
+  		}
+  	],
+  	":memory": 1536,
+  	"synced_folder": [
+  		{
+  			":host_machine_path": "../postfix_healthcheck",
+  			":guest_machine_path": "/var/postfix.test/mail",
+  			"ownership_options": {
+	  			":owner": "vagrant",
+	  			":group": "www-data",
+	  			":mount_options": {
+	  				":dmode":775,
+	  				":fmode":775
+	  			}
+  			}
+  		}
+  	]
+  },
+  "run_list": [
+    "postfix_base::base",
+    "postfix_github::ssh-wrapper",
+    "postfix_github::ssh-config",
+    "postfix_nginx::install",
+    "postfix_nodejs::install",
+    "postfix_hosts::hosts",
+    "postfix_mail::selfsigned-certificate",
+    "postfix_mail::postfix",
+    "postfix_hosts::hosts",
+    "postfix_mail::cyrus-sasl",
+    "postfix_mail::opendkim",
+    "postfix_mail::postsrsd",
+    "postfix_mail::spamassassin",
+    "postfix_mail::send-dkim-public-key",
+    "postfix_mail::deploy"
+  ]
+}

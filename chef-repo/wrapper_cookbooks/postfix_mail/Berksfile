@@ -1,0 +1,17 @@
+source 'https://supermarket.chef.io'
+
+cookbook 'users',             '~> 5.2.1'
+cookbook 'openssl',           '~> 7.1.0'
+cookbook 'nginx',             '~> 7.0.0'
+cookbook 'nodejs',            '~> 4.0.0'
+cookbook 'cron',              '~> 4.2.0'
+cookbook 'acme',              '~> 3.1.0'
+cookbook 'postfix',           '~> 5.0.1'
+
+
+cookbook 'postfix_base', path: '../postfix_base'
+cookbook 'postfix_github', path: '../postfix_github'
+cookbook 'postfix_nginx', path: '../postfix_nginx'
+cookbook 'postfix_nodejs', path: '../postfix_nodejs'
+
+metadata

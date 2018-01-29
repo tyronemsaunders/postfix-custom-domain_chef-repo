@@ -1,0 +1,32 @@
+{
+  "name": "production",
+  "description": "A role to configure the production server for tubmanproject.com",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[postfix_base::base]",
+    "recipe[postfix_github::ssh-wrapper]",
+    "recipe[postfix_github::ssh-config]",
+    "recipe[postfix_nginx::install]",
+    "recipe[postfix_nodejs::install]",
+    "recipe[postfix_hosts::hosts]",
+    "recipe[postfix_mail::selfsigned-certificate]",
+    "recipe[postfix_mail::postfix]",
+    "recipe[postfix_hosts::hosts]",
+    "recipe[postfix_mail::cyrus-sasl]",
+    "recipe[postfix_mail::opendkim]",
+    "recipe[postfix_mail::postsrsd]",
+    "recipe[postfix_mail::spamassassin]",
+    "recipe[postfix_mail::send-dkim-public-key]",
+    "recipe[postfix_mail::deploy]"
+  ],
+  "env_run_lists": {
+
+  }
+}
