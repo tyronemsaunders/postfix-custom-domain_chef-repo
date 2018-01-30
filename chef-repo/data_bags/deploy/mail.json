@@ -3,7 +3,7 @@
  "development" : [
     {
       "subdomain" : "email",
-      "hostname" : "postfix-healthcheck",
+      "hostname" : "postfix_healthcheck",
       "domain" : "postfix.test",
       "port" : 5001,
       "nginx_config_template": "postfix_nginx.conf.erb",
@@ -36,7 +36,7 @@
   "staging" : [
     {
       "subdomain" : "email-staging",
-      "hostname" : "postfix-healthcheck-staging",
+      "hostname" : "postfix_healthcheck_staging",
       "domain" : "mintyross.com",
       "port" : 5001,
       "nginx_config_template": "postfix_nginx.conf.erb",
@@ -69,7 +69,7 @@
   "production" : [
     {
       "subdomain" : "email",
-      "hostname" : "postfix-healthcheck",
+      "hostname" : "postfix_healthcheck",
       "domain" : "mintyross.com",
       "port" : 5001,
       "nginx_config_template": "postfix_nginx.conf.erb",
