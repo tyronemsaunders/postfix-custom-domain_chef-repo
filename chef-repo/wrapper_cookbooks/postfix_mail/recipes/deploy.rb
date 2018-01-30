@@ -246,7 +246,7 @@ app['commands'].each do |cmd|
         }
       }
     )
-    cwd "/var/#{domain}/#{subdomain}"
+    cwd "/var/#{app['domain']}/#{app['subdomain']}"
     command "#{cmd_line_env} #{cmd}"
   end
 end
