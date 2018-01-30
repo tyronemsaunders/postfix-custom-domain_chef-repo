@@ -245,7 +245,7 @@ You can use a [managed](https://manage.chef.io/login) Chef Server or a [self-hos
 
   `$ cd /PATH/TO/myproject/chef-repo/node_configuration`
 
-  Edit the `tubmanproject.json` file to setup [hostnames and aliases](https://github.com/devopsgroup-io/vagrant-hostmanager), [port forwarding](https://www.vagrantup.com/docs/networking/forwarded_ports.html), and [synced folders](https://www.vagrantup.com/docs/synced-folders/) for the Vagrant virtual machine.  
+  Edit the `postfix.json` file to setup [hostnames and aliases](https://github.com/devopsgroup-io/vagrant-hostmanager), [port forwarding](https://www.vagrantup.com/docs/networking/forwarded_ports.html), and [synced folders](https://www.vagrantup.com/docs/synced-folders/) for the Vagrant virtual machine.  
 
 7. Boot the Vagrant environment:
 

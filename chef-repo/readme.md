@@ -306,15 +306,15 @@ Create a JSON file `data_bags/secrets/github.json` in the format above and compl
 
 	example: `"keypair_path" : "/tmp/git/.ssh"`
 
-* SSH_WRAPPER_FILENAME - The filename of an ssh wrapper, a bash script, that is used by Chef to tell the Chef client how to handle GitHub's public fingerprint and authenticate with a private key. The file is created with a Chef template in the "tubmanproject_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
+* SSH_WRAPPER_FILENAME - The filename of an ssh wrapper, a bash script, that is used by Chef to tell the Chef client how to handle GitHub's public fingerprint and authenticate with a private key. The file is created with a Chef template in the "postfix_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
 
 	example: `"ssh_wrapper_filename" : "ssh_4_github.sh"`
 
-* PRIVATE_KEY_FILENAME - The filename of the github private key.  The file is created with a Chef template in the "tubmanproject_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
+* PRIVATE_KEY_FILENAME - The filename of the github private key.  The file is created with a Chef template in the "postfix_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
 
 	example: `"private_key_filename" : "github_chef_rsa"`
 
-* PUBLIC_KEY_FILENAME - The filename of the github public key.  The file is created with a Chef template in the "tubmanproject_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
+* PUBLIC_KEY_FILENAME - The filename of the github public key.  The file is created with a Chef template in the "postfix_github::ssh-wrapper" recipe and saved in the KEYPAIR_PATH.
 
 	example: `"public_key_filename" : "github_chef_rsa.pub"`
 
@@ -481,11 +481,11 @@ Create a JSON file `data_bags/secrets/ssh_keys.json` in the format above and com
 
 * PRIVATE_KEY_FILENAME - The filename of the private key.
 
-	example: `"private_key_filename" : "tubmanproject.pem"`
+	example: `"private_key_filename" : "postfix.pem"`
 
 * PUBLIC_KEY_FILENAME - The filename of the public key.
 
-	example: `"public_key_filename" : "tubmanproject.pub"`
+	example: `"public_key_filename" : "postfix.pub"`
 
 * PRIVATE_KEY - The contents of the private key. The newlines in the private key should be represented as `\n` because `json` doesn't allow newlines.
 
