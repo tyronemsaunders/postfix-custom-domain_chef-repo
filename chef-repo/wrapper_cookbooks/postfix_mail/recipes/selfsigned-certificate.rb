@@ -18,7 +18,7 @@ if ['development'].include?(node.chef_environment)
   alt_names = []
   apps = node['deploy']['mail'][node.chef_environment]
   apps.each do |app|
-    alt_names.push("DNS:#{app['subdomain'].app['domain']}")
+    alt_names.push("DNS:#{app['subdomain']}.#{app['domain']}")
   end
   alt_names.push("DNS:#{node['deploy']['mail'][node.chef_environment][0]['domain']}")
 
@@ -46,7 +46,7 @@ else
   alt_names = []
   apps = node['deploy']['mail'][node.chef_environment]
   apps.each do |app|
-    alt_names.push("#{app['subdomain'].app['domain']}")
+    alt_names.push("#{app['subdomain']}.#{app['domain']}")
   end
   alt_names.push("#{node['deploy']['mail'][node.chef_environment][0]['domain']}")
 

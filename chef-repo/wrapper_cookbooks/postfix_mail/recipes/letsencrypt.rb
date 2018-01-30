@@ -10,7 +10,7 @@ include_recipe 'acme'
 alt_names = []
 apps = node['deploy']['mail'][node.chef_environment]
 apps.each do |app|
-  alt_names.push("#{app['subdomain'].app['domain']}")
+  alt_names.push("#{app['subdomain']}.#{app['domain']}")
 end
 alt_names.push("#{node['deploy']['mail'][node.chef_environment][0]['domain']}")
 
