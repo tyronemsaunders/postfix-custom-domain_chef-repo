@@ -42,7 +42,7 @@
   	"synced_folder": [
   		{
   			":host_machine_path": "../postfix_healthcheck",
-  			":guest_machine_path": "/var/postfix.test/mail",
+  			":guest_machine_path": "/var/postfix.test/email",
   			"ownership_options": {
 	  			":owner": "vagrant",
 	  			":group": "www-data",

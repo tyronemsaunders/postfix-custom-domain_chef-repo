@@ -67,7 +67,7 @@ end
 ################
 postmap_hashes = [
   '/etc/postfix/sasl_passwd',
-  #'/etc/postfix/virtual',
+  '/etc/postfix/virtual',
   '/etc/postfix/sender_relay'
 ]
 
