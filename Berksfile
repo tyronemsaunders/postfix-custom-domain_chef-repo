@@ -1,7 +1,7 @@
 source 'https://supermarket.chef.io'
 
 cookbook 'postfix_aws', path: 'chef-repo/wrapper_cookbooks/postfix_aws'
-cookbook 'posfix_base', path: 'chef-repo/wrapper_cookbooks/posfix_base'
+cookbook 'postfix_base', path: 'chef-repo/wrapper_cookbooks/postfix_base'
 cookbook 'postfix_github', path: 'chef-repo/wrapper_cookbooks/postfix_github'
 cookbook 'postfix_hosts', path: 'chef-repo/wrapper_cookbooks/postfix_hosts'
 cookbook 'postfix_mail', path: 'chef-repo/wrapper_cookbooks/postfix_mail'
