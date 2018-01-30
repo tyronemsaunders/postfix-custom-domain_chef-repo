@@ -56,7 +56,7 @@ apps.each do |app|
   # variables #
   #############
   env_vars['APP_NAME'] = app['hostname']
-  env_vars["#{app['hostname'].upcase}_PORT"] = port
+  env_vars["#{app['hostname'].upcase}_PORT"] = app['port']
   env_vars['SUBDOMAIN'] = app['subdomain']
   env_vars['DOMAIN'] = app['domain']
   env_vars['POSTFIX_PORT'] = node['postfix']['port']
