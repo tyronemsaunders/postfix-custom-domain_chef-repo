@@ -1,0 +1,3 @@
+[submodule "postfix_healthcheck"]
+	path = postfix_healthcheck
+	url = https://github.com/tyronemsaunders/postfix_healthcheck.git
