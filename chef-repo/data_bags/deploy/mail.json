@@ -5,7 +5,7 @@
       "subdomain" : "email",
       "hostname" : "postfix_healthcheck",
       "domain" : "postfix.test",
-      "port" : 5001,
+      "port" : 3333,
       "nginx_config_template": "postfix_nginx.conf.erb",
 	    "ssl": false,
       "acme_cert": {
@@ -38,7 +38,7 @@
       "subdomain" : "email-staging",
       "hostname" : "postfix_healthcheck_staging",
       "domain" : "mintyross.com",
-      "port" : 5001,
+      "port" : 3333,
       "nginx_config_template": "postfix_nginx.conf.erb",
 	    "ssl": false,
       "acme_cert": {
@@ -71,7 +71,7 @@
       "subdomain" : "email",
       "hostname" : "postfix_healthcheck",
       "domain" : "mintyross.com",
-      "port" : 5001,
+      "port" : 3333,
       "nginx_config_template": "postfix_nginx.conf.erb",
 	    "ssl": false,
       "acme_cert": {
