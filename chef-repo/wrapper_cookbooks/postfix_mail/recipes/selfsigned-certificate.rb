@@ -35,7 +35,7 @@ if ['development'].include?(node.chef_environment)
   end
 
   # generate dhparam.pem files
-  openssl_dhparam "#{node['mail']['directories']['ssl']}/#{app['subdomain']}.#{app['domain']}/dhparam.pem" do
+  openssl_dhparam "#{node['mail']['directories']['ssl']}/dhparam.pem" do
     key_length 2048
   end
 

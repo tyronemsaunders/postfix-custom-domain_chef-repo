@@ -55,7 +55,7 @@ end
 execute "generate DKIM signing keys" do
   live_stream true
   cwd node['opendkim']['config']['dir']
-  command "opendkim-genkey -s mail -d #{node['deploy']['mail'][node.chef_environment]['domain']}"
+  command "opendkim-genkey -s mail -d #{node['deploy']['mail'][node.chef_environment][0]['domain']}"
 end
 
 # set permissions on DKIM signing key

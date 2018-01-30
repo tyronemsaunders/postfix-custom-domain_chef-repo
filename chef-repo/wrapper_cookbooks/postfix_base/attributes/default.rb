@@ -57,6 +57,3 @@ end
 # Un-encrypted Data Bags #
 ##########################
 default['deploy']['mail'] = Chef::DataBagItem.load('deploy', 'mail')
-
-# Other attributes
-node.override['sysctl']['conf_file'] = '/etc/sysctl.conf'

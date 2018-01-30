@@ -24,7 +24,7 @@ end
 # create the user name / password database file in the default location /etc/sasldb2
 execute "create sasl username and password" do
   live_stream true
-  command "/etc/postfix/saslpasswd2.sh #{node['deploy']['mail'][node.chef_environment]['domain']} #{cyrus_sasl['username']} #{cyrus_sasl['password']}"
+  command "/etc/postfix/saslpasswd2.sh #{node['deploy']['mail'][node.chef_environment][0]['domain']} #{cyrus_sasl['username']} #{cyrus_sasl['password']}"
 end
 
 # adjust permissions for /etc/sasldb2

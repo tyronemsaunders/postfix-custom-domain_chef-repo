@@ -59,9 +59,9 @@ node.override['postfix']['relayhost'] = postfix['relayhost'] || '[email-smtp.us-
 node.override['postfix']['mail_type'] = 'master'
 
 node.override['postfix']['main']['inet_interfaces'] = 'all'
-node.override['postfix']['main']['myhostname'] = "mail.#{node['deploy']['mail'][node.chef_environment]['domain']}"
-node.override['postfix']['main']['mydomain'] = node['deploy']['mail'][node.chef_environment]['domain']
-node.override['postfix']['main']['myorigin'] = node['deploy']['mail'][node.chef_environment]['domain']
+node.override['postfix']['main']['myhostname'] = "mail.#{node['deploy']['mail'][node.chef_environment][0]['domain']}"
+node.override['postfix']['main']['mydomain'] = node['deploy']['mail'][node.chef_environment][0]['domain']
+node.override['postfix']['main']['myorigin'] = node['deploy']['mail'][node.chef_environment][0]['domain']
 
 node.override['postfix']['main']['smtp_use_tls'] = 'yes'
 node.override['postfix']['main']['smtp_tls_security_level'] = 'encrypt' # force TLS for everything
@@ -70,7 +70,7 @@ node.override['postfix']['main']['smtpd_tls_cert_file'] = "#{node['mail']['direc
 node.override['postfix']['main']['smtpd_tls_key_file'] = "#{node['mail']['directories']['ssl']}/ssl.key"
 
 node.override['postfix']['use_virtual_aliases'] = true
-node.override['postfix']['main']['virtual_alias_domains'] = node['deploy']['mail'][node.chef_environment]['domain']
+node.override['postfix']['main']['virtual_alias_domains'] = node['deploy']['mail'][node.chef_environment][0]['domain']
 node.override['postfix']['main']['virtual_alias_maps'] = 'sqlite:/etc/postfix/sqlite-virtual.cf' # "hash:/etc/postfix/virtual"
 node.override['postfix']['maps']['hash']['/etc/postfix/virtual'] = mail_forwarding
 node.override['postfix']['maps']['sqlite']['/etc/postfix/sqlite-virtual.cf'] = {
@@ -85,11 +85,11 @@ node.override['postfix']['sasl']['smtp_sasl_user_name'] = postfix['smtp_sasl_use
 node.override['postfix']['main']['smtp_sasl_password_maps'] = 'hash:/etc/postfix/sasl_passwd'
 node.override['postfix']['main']['sender_dependent_relayhost_maps'] = "pcre:/etc/postfix/sender_relay.pcre,hash:/etc/postfix/sender_relay"
 node.override['postfix']['maps']['hash']['/etc/postfix/sender_relay'] = {
-  "@#{node['deploy']['mail'][node.chef_environment]['domain']}" => node['postfix']['relayhost']
+  "@#{node['deploy']['mail'][node.chef_environment][0]['domain']}" => node['postfix']['relayhost']
 }
 node.override['postfix']['main']['smtp_sender_dependent_authentication'] = "yes"
 node.override['postfix']['maps']['hash']['/etc/postfix/sasl_passwd'] = {
-  "@#{node['deploy']['mail'][node.chef_environment]['domain']}" => "#{node['postfix']['sasl']['smtp_sasl_user_name']}:#{node['postfix']['sasl']['smtp_sasl_passwd']}"
+  "@#{node['deploy']['mail'][node.chef_environment][0]['domain']}" => "#{node['postfix']['sasl']['smtp_sasl_user_name']}:#{node['postfix']['sasl']['smtp_sasl_passwd']}"
 }
 
 node.override['postfix']['master']['relay']['args'] = []
@@ -141,7 +141,7 @@ default['opendkim']['userid'] = 'opendkim:opendkim'
 default['opendkim']['socket'] = 'local:/var/spool/postfix/var/run/opendkim/opendkim.sock'
 default['opendkim']['canonicalization'] = 'relaxed/simple'
 default['opendkim']['signaturealgorithm'] = 'rsa-sha256'
-default['opendkim']['domain'] = node['deploy']['mail'][node.chef_environment]['domain']
+default['opendkim']['domain'] = node['deploy']['mail'][node.chef_environment][0]['domain']
 default['opendkim']['keyfile'] = '/etc/opendkim.d/mail.private'
 default['opendkim']['selector'] = 'mail'
 default['opendkim']['externalignorelist'] = 'refile:/etc/opendkim.d/TrustedHosts'
