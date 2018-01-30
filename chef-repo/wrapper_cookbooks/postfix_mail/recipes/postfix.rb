@@ -32,7 +32,7 @@ end
 ########################
 # install SQLite
 package 'Install SQLite' do
-  package_name ['sqlite3', 'libsqlite3-dev', 'postfix-sqlite']
+  package_name ['sqlite3', 'libsqlite3-dev']
   action :upgrade
 end
 
