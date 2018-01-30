@@ -43,6 +43,7 @@ if Chef::Config[:solo]
   default['secrets']['host_machine'] = Chef::DataBagItem.load('secrets', 'host_machine')
   default['secrets']['openssl'] = Chef::DataBagItem.load('secrets', 'openssl')
   default['secrets']['ssh_keys'] = Chef::DataBagItem.load('secrets', 'ssh_keys')
+  default['secrets']['mail'] = Chef::DataBagItem.load('secrets', 'mail')
 else
   default['secrets']['aws'] = Chef::EncryptedDataBagItem.load('secrets', 'aws')
   default['secrets']['github'] = Chef::EncryptedDataBagItem.load('secrets', 'github')
@@ -50,6 +51,7 @@ else
   default['secrets']['host_machine'] = Chef::EncryptedDataBagItem.load('secrets', 'host_machine')
   default['secrets']['openssl'] = Chef::EncryptedDataBagItem.load('secrets', 'openssl')
   default['secrets']['ssh_keys'] = Chef::EncryptedDataBagItem.load('secrets', 'ssh_keys')
+  default['secrets']['mail'] = Chef::EncryptedDataBagItem.load('secrets', 'mail')
 end
 ##########################
 # Un-encrypted Data Bags #

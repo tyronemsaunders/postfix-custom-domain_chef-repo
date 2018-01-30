@@ -13,6 +13,7 @@ if Chef::Config[:solo]
   default['secrets']['data_bag'] = Chef::DataBagItem.load('secrets', 'data_bag')
   default['secrets']['host_machine'] = Chef::DataBagItem.load('secrets', 'host_machine')
   default['secrets']['openssl'] = Chef::DataBagItem.load('secrets', 'openssl')
+  default['secrets']['mail'] = Chef::DataBagItem.load('secrets', 'mail')
 else
   default['secrets']['aws'] = Chef::EncryptedDataBagItem.load('secrets', 'aws')
   default['secrets']['github'] = Chef::EncryptedDataBagItem.load('secrets', 'github')
@@ -20,6 +21,7 @@ else
   default['secrets']['data_bag'] = Chef::EncryptedDataBagItem.load('secrets', 'data_bag')
   default['secrets']['host_machine'] = Chef::EncryptedDataBagItem.load('secrets', 'host_machine')
   default['secrets']['openssl'] = Chef::EncryptedDataBagItem.load('secrets', 'openssl')
+  default['secrets']['mail'] = Chef::EncryptedDataBagItem.load('secrets', 'mail')
 end
 
 ##########################
