@@ -6,9 +6,9 @@ set domain [lindex $argv 0]
 set username [lindex $argv 1]
 set password [lindex $argv 2]
 
-puts "Running command: saslpasswd2 -c -u $domain $username"
+puts "Running command: sudo saslpasswd2 -c -u $domain $username"
 
-spawn saslpasswd2 -c -u $domain $username
+spawn sudo saslpasswd2 -c -u $domain $username
 
 while true {
     expect {
